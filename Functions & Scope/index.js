@@ -85,3 +85,33 @@ console.log("1: ", calculateFare(10, false))
 console.log("2: ", calculateFare(10, true))
 console.log("3: ", calculateFare(5, true))
 console.log("4: ", calculateFare(3, false))
+
+
+
+
+// 3. Bank Interest Calculation System
+// Scenario:
+// A bank offers different interest rates for savings accounts based on the deposit amount. 
+// Deposits above $10,000 get a 5% interest rate, while others get 3% interest.
+
+function calculateInterest(deposit){
+    if(typeof deposit !== "number" || deposit < 0){
+
+        throw new Error("invalid data");
+        
+
+    }
+    let interestRate = deposit  > 10000 ? 0.5 :0.3;
+    let intrestAmt = deposit * interestRate;
+    let finalBalance = deposit + intrestAmt;
+
+    return {
+        deposit :deposit,
+        interestRate : (interestRate *100) + "%",
+        Amount :finalBalance
+    };
+}
+
+console.log("ins ",calculateInterest(8000))
+console.log("ins ",calculateInterest(12000))
+console.log("ins ",calculateInterest(15000))
