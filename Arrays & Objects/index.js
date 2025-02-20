@@ -44,3 +44,67 @@ function filterByCuisineAndRating(cuisine,minRating){
 console.log("filterByCuisineAndRating: ",filterByCuisineAndRating("Italian",4.7))
 
 console.log("===================================================================")
+
+// 3. Sorting Restaurants by Rating
+// Task: Implement a function sortByRating() that sorts the 
+// restaurants array in descending order based on the rating.
+// higher to lower
+function sortByRating(){
+    return restaurants.sort((a,b)=> b.rating - a.rating)
+}
+
+console.log("sortByRating: ",sortByRating())
+
+console.log("===================================================================")
+
+// 4. Grouping Restaurants by Cuisine
+// Task: Write a function groupByCuisine() that groups restaurants based on their cuisine type.
+
+function groupByCuisine(){
+    return restaurants.reduce((acc,restro)=>{
+        if(!acc[restro.cuisine]){
+            acc[restro.cuisine] =[]
+        }
+        acc[restro.cuisine].push(restro)
+       return acc;
+    },{})
+}
+
+console.log("groupByCuisine: ",groupByCuisine())
+
+console.log("===================================================================")
+
+
+
+// 5. Count Restaurants by Cuisine
+// Task: Implement a function countRestaurantsByCuisine() that returns an object with cuisine types as keys and 
+// the counts of restaurants as values.
+
+
+function countRestaurantsByCuisine(){
+
+    return restaurants.reduce((acc,restro)=>{
+        acc[restro.cuisine] = (acc[restro.cuisine] || 0) + 1 
+
+        return acc;
+    },{})
+
+}
+
+console.log("countRestaurantsByCuisine: ",countRestaurantsByCuisine())
+
+console.log("===================================================================")
+
+
+// 6. Average Rating of Restaurants by Cuisine
+// Task: Write a function averageRatingByCuisine(cuisineType) that calculates the average rating of restaurants serving the specified cuisine.
+
+function averageRatingByCuisine(cuisineType){
+    const filteredRestro = restaurants.filter((restro)=>restro.cuisine === cuisineType);
+    if (filteredRestro.length === 0) return 0;
+    let totalRating = filteredRestro.reduce((sum,restro)=>sum = sum + restro.rating,0
+    )
+    let avgRating = totalRating /filteredRestro.length;
+    return avgRating;
+}
+console.log("avg rating",averageRatingByCuisine("Italian"));
