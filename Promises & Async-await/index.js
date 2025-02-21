@@ -17,4 +17,32 @@ async function fetchWeather(city) {
     }
 }
 
-fetchWeather("Atlanta")
+// fetchWeather("Atlanta")
+
+
+
+// User Authentication System
+// Scenario: You are working on a login system where users enter their username and password. 
+// The system sends an API request to verify the credentials and returns a response.
+
+async function loginUser(email,password) {
+    try {
+        const res = await fetch('https://dummyjson.com/auth/login',{
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({email,password})
+
+        });
+        if(!res.ok) throw new Error("Error in saving user");
+        const data = await res.json()
+        console.log("Login Successful:", data);
+        return data;
+       
+        
+    } catch (error) {
+        console.error("Login failed:", error.message);
+    }
+    
+}
+
+loginUser("mnp@gmail.com","12345")
