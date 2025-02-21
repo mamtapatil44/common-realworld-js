@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .like-btn {
+            background-color: green;
+        }
+        .dislike-btn {
+            background-color: red;
+        }
+        .selected {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    <div class="comment">
+        <p>This is comment</p>
+        <button id="likebtn"class="like-btn">👍 Like (<span id="likeCount">0</span>)</button>
+        <button id="dislikebtn" class="dislike-btn">👎 Dislike (<span id="dislikeCount">0</span>)</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
