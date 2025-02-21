@@ -106,7 +106,76 @@ console.log("===================================================================
 
 
 
+// Email Notification System
+// Scenario: An application sends different types of email notifications (order confirmation, password reset, promotional offers).
+// Problem: Implement a function sendEmails(emails, callback) that sends emails using different logic based on email type.
+
+function sendEmails(emails,callback){
+    emails.forEach(email=>callback(email))
+
+}
+
+function handleEmail(email){
+    switch(email.type){
+        case "order_confirmation":
+            console.log(`Sending order confirmation email to ${email.recipient}`);
+            break;
+            case "password_reset":
+            console.log(`Sending password reset email to ${email.recipient}`);
+            break;
+            case "promo":
+            console.log(`Sending promo email to ${email.recipient}`);
+            break;
+            default:
+            console.log("Unknown email")
+    }
+
+}
+
+const emails = [
+    { type: "order_confirmation", recipient: "user1@example.com" },
+    { type: "password_reset", recipient: "user2@example.com" },
+    { type: "promo", recipient: "user3@example.com" }
+];
+sendEmails(emails,handleEmail);
+console.log("====================================================================================")
 
 
 
 
+
+
+// Scenario: A warehouse needs to process different stock transactions (add stock, remove stock, check stock level).
+// Problem: Implement a function updateInventory(transactions, callback) to update stock based on transaction type.
+
+function updateInventory(transactions,callback){
+    transactions.forEach((tran)=>callback(tran))
+
+}
+
+function handleInventory(inventory){
+    switch(inventory.action){
+        case "add":
+            console.log(`Adding ${inventory.quantity} inventory in ${inventory.item}`);
+            break;
+            case "remove":
+            console.log(`Removing ${inventory.quantity} inventory from ${inventory.item}`);
+            break; 
+            case "check":
+            console.log(`Checking inventory in ${inventory.item}`);
+            break;
+            default:
+                console.log('Unknown Inventory')  
+    }
+
+}
+
+
+const inventoryTransactions = [
+    { action: "add", item: "Laptop", quantity: 5 },
+    { action: "remove", item: "Mouse", quantity: 2 },
+    { action: "check", item: "Keyboard" }
+];
+
+updateInventory(inventoryTransactions,handleInventory);
+console.log("====================================================================================")
